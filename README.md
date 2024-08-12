@@ -24,3 +24,13 @@ WHERE country="United States"
 ORDER BY population DESC
 LIMIT 2 OFFSET 2;
 ---------------------------
+SELECT director, COUNT()
+FROM movies
+GROUP BY director;
+---------------------------
+SELECT director, SUM(domestic_sales + international_sales)
+FROM boxoffice
+LEFT JOIN movies
+ on id = movie_id
+GROUP BY director;
+---------------------------
